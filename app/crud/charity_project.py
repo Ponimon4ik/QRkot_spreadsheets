@@ -19,8 +19,7 @@ class CRUDCharityProject(CRUDBase):
                 CharityProject.name == project_name
             )
         )
-        project = project.scalars().first()
-        return project
+        return project.scalars().first()
 
     @staticmethod
     async def get_projects_by_completion_rate(
@@ -29,17 +28,15 @@ class CRUDCharityProject(CRUDBase):
         closed_projects = await session.execute(
             select(
                 [CharityProject.name,
+                 CharityProject.create_date,
                  CharityProject.close_date,
                  CharityProject.description
                  ]
             ).where(
-                CharityProject.fully_invested == true())
-            # ).order_by(
-            #     CharityProject.close_date
-            # )
+                CharityProject.fully_invested == true()
+            )
         )
-        closed_projects = closed_projects.all()
-        return closed_projects
+        return closed_projects.all()
 
 
 charity_project_crud = CRUDCharityProject(CharityProject)
