@@ -1,10 +1,11 @@
 from typing import Optional
 
 from fastapi.encoders import jsonable_encoder
-from sqlalchemy import false, select
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import User
+from app.crud.constants import FALSE
 
 
 class CRUDBase:
@@ -79,7 +80,7 @@ class CRUDBase:
             select(self.model).order_by(
                 self.model.create_date
             ).where(
-                self.model.fully_invested == false()
+                self.model.fully_invested == FALSE
             )
         )
         objects = objects.scalars().all()

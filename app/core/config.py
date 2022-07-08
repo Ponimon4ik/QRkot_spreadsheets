@@ -23,6 +23,10 @@ class Settings(BaseSettings):
     auth_provider_x509_cert_url: Optional[str] = None
     client_x509_cert_url: Optional[str] = None
     email: Optional[str] = None
+    table_rows_count: int = 100
+    table_columns_count: int = 11
+    drive_api: tuple = ('drive', 'v3')
+    spreadsheets_api: tuple = ('sheets', 'v4')
 
     class Config:
         env_file = '.env'

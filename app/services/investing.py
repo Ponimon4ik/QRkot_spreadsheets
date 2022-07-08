@@ -14,8 +14,11 @@ async def investing(
 ) -> Union[CharityProject, Donation]:
     if source.invested_amount is None:
         source.invested_amount = 0
-    crud = donation_crude if isinstance(
-        source, CharityProject) else charity_project_crud
+    crud = (
+        donation_crude
+        if isinstance(source, CharityProject) else
+        charity_project_crud
+    )
     for target in await crud.get_not_fully_invested(session):
         session.add(target)
         allocated_amount = (
