@@ -50,13 +50,14 @@ Cоздать env-файл и прописать переменные окруж
 ```
 >>> touch .env
 ```
-В проекте есть файл заготовка env_blank
 ```
 DATABASE_URI= dialect+driver://username:password@host:port/database # расположение базы данных
 SECRET_KEY= secret_key # секретный ключ приложения
 FIRST_SUPERUSER_EMAIL=admin@mail.ru # почтовый адресс первого суперюзера
 FIRST_SUPERUSER_PASSWORD=admin # пароль для уч. записи первого суперюзера
 ```
+В проекте есть файл заготовка env_blank
+
 Для создания БД, выполните следующие команду:
 ```
 >>> alembic upgrade head

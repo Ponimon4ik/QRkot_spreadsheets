@@ -1,3 +1,4 @@
+from copy import deepcopy
 from typing import Optional
 from datetime import datetime
 
@@ -55,7 +56,7 @@ async def spreadsheets_create(
 ) -> str:
     service = await wrapper_services.discover(*settings.spreadsheets_api)
     spreadsheet_body = (
-        dict_as_obj(SPREADSHEET_BODY)
+        deepcopy(dict_as_obj(SPREADSHEET_BODY))
         if spreadsheet_body is None
         else dict_as_obj(spreadsheet_body)
     )
@@ -107,7 +108,7 @@ async def spreadsheets_update_value(
         key=lambda row: row[1]
     )
     table_header = (
-        dict_as_obj(TABLE_HEADER)
+        deepcopy(dict_as_obj(TABLE_HEADER))
         if table_header is None
         else dict_as_obj(table_header)
     )
