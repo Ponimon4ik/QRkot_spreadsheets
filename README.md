@@ -9,6 +9,7 @@
 + Pydantic
 + Uvicorn
 + Alembic
++ Aiogoogle
 
 ### Как запустить проект:
 Клонировать репозиторий и перейти в него в командной строке:
@@ -49,6 +50,7 @@ Cоздать env-файл и прописать переменные окруж
 ```
 >>> touch .env
 ```
+В проекте есть файл заготовка env_blank
 ```
 DATABASE_URI= dialect+driver://username:password@host:port/database # расположение базы данных
 SECRET_KEY= secret_key # секретный ключ приложения
@@ -70,4 +72,4 @@ FIRST_SUPERUSER_PASSWORD=admin # пароль для уч. записи перв
 
 ### Автор:
 
-+ Стефанюк Богдан
++ [Стефанюк Богдан](https://github.com/Ponimon4ik)
